@@ -3,20 +3,29 @@
     width: 256px;
     height: 220px;
     border: 5px solid red;
-    overflow: hidden;
+    /*overflow: hidden;*/
     
 }
 
-.background{
-    position: absolute;
+.background-container{
+    position: relative;
     top: 0;
     left: 0;
-    width: 3392px;
+    width: 1975px;
     height: 448px;
     background-image: url(../img/scene-1-1.png);
-    animation-name: ani-background;
+    /*animation-name: ani-background;
     animation-duration: 35s;
-    animation-timing-function: linear;
+    animation-timing-function: linear;*/
+}
+
+.goomba{
+    position: absolute;
+    background-image: url(../img/goomba.png);
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    animation: ani-goomba .8s steps(2) infinite;
 }
 
 @keyframes ani-background{
@@ -26,4 +35,44 @@
     to{
         left: -1006%;
     }
+}
+
+@keyframes ani-goomba{
+    from{
+        background-position: 0px 0px;
+    }
+    to{
+        background-position: -32px 0px;
+    }
+}
+
+
+#goomba-1{
+    top: 185px;
+    left: 354px;
+}
+
+#goomba-2{
+    top: 185px;
+    left: 639px;
+}
+
+#goomba-3{
+    top: 185px;
+    left: 818px;
+}
+
+#goomba-4{
+    top: 185px;
+    left: 843px;
+}
+
+#goomba-5{
+    top: 185px;
+    left: 1378px;
+}
+
+#goomba-6{
+    top: 185px;
+    left: 1404px;
 }
