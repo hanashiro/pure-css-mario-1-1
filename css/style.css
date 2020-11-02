@@ -15,8 +15,10 @@
     height: 448px;
     background-image: url(../img/scene-1-1.png);
     animation-name: ani-background;
-    animation-duration: 35s;
+    animation-duration: 30s;
     animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .goomba{
@@ -30,22 +32,51 @@
 
 .mario{
     position: absolute;
-    top: 198px;
+    top: 185px;
     left: 50px;
     background-image: url(../img/mario.png);
     width: 16px;
     height: 16px;
     background-repeat: no-repeat;
-    background-position: -18px -1px;
-    animation: ani-mario .4s steps(1) infinite;
+    animation: ani-mario .4s steps(1, start) infinite;
 }
 
 @keyframes ani-background{
-    from{
+    0%{
         left: 0%;
     }
-    to{
-        left: -1006%;
+    16%{
+        left: -880px
+    }
+    20%{
+        top: 0;
+        left: -880px
+    }
+
+
+    20.1%{
+        top: -228px;
+        left: -891px;
+    }
+    36.6%{
+        top: -228px;
+        left: -891px;
+    }
+
+
+    36.7%{
+        top: 0;
+        left: -1138px;
+    }
+    46%{
+        top: 0;
+        left: -1138px;
+    }
+    60%{
+        left: -1718px;
+    }
+    100%{
+        left: -1718px;
     }
 }
 
@@ -59,17 +90,17 @@
 }
 
 @keyframes ani-mario{
-    0%{
+    25%{
         /*background-position: -1px -1px;*/
         background-position: -35px -1px;
     }
-    25%{
+    50%{
         background-position: -18px -1px;
     }
-    50%{
+    75%{
         background-position: -35px -1px;
     }
-    75%{
+    100%{
         background-position: -52px -1px;
     }
 }
