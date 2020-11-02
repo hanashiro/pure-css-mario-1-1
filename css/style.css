@@ -3,7 +3,7 @@
     width: 256px;
     height: 220px;
     border: 5px solid red;
-    /*overflow: hidden;*/
+    overflow: hidden;
     
 }
 
@@ -14,9 +14,9 @@
     width: 1975px;
     height: 448px;
     background-image: url(../img/scene-1-1.png);
-    /*animation-name: ani-background;
+    animation-name: ani-background;
     animation-duration: 35s;
-    animation-timing-function: linear;*/
+    animation-timing-function: linear;
 }
 
 .goomba{
@@ -26,6 +26,18 @@
     height: 16px;
     background-repeat: no-repeat;
     animation: ani-goomba .8s steps(2) infinite;
+}
+
+.mario{
+    position: absolute;
+    top: 198px;
+    left: 50px;
+    background-image: url(../img/mario.png);
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: -18px -1px;
+    animation: ani-mario .4s steps(1) infinite;
 }
 
 @keyframes ani-background{
@@ -46,6 +58,21 @@
     }
 }
 
+@keyframes ani-mario{
+    0%{
+        /*background-position: -1px -1px;*/
+        background-position: -35px -1px;
+    }
+    25%{
+        background-position: -18px -1px;
+    }
+    50%{
+        background-position: -35px -1px;
+    }
+    75%{
+        background-position: -52px -1px;
+    }
+}
 
 #goomba-1{
     top: 185px;
