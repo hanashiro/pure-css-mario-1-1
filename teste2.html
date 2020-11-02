@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var positions = [{"top":"0px","left":"0px","time":0.1874450000000003},{"top":"0px","left":"-509px","time":4.1017410000000005},{"top":"0px","left":"-642px","time":6.301106000000001},{"top":"0px","left":"-662px","time":6.807732},{"top":"0px","left":"-662px","time":7.1474329999999995},{"top":"-235px","left":"-891px","time":7.638645},{"top":"-235px","left":"-891px","time":10.409495},{"top":"-235px","left":"-891px","time":12.398852000000002},{"top":"-235px","left":"-891px","time":13.099924999999999},{"top":"0px","left":"-1153px","time":13.42053},{"top":"0px","left":"-1153px","time":15.052679999999999},{"top":"0px","left":"-1179px","time":15.450952999999998},{"top":"0px","left":"-1500px","time":17.751513},{"top":"0px","left":"-1639px","time":18.848896},{"top":"0px","left":"-1639px","time":20.652744},{"top":"0px","left":"-1716px","time":21.662632}]
+        
+    
+    
+    
+    
+    
+    
+    var css = '';
+    var startTime = (positions[0].time);
+    var endTime = (positions[positions.length - 1].time);
+    
+    function getTime(time){
+        return parseFloat((time/30*100).toFixed(2))
+    }
+    
+    positions = positions.map(position => {
+        return {
+            ...position,
+            time: getTime(position.time)
+        }
+    })
+    
+    
+    positions.forEach(position => {
+        var time = position.time;
+        css +=`\t${((time)/getTime(endTime)*100).toFixed(2)}%{/*${time}s*/
+            top: ${position.top};
+            left: ${position.left};
+        }\n`
+    })
+    
+    function copy(text){
+                var textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+    
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+    
+            copy(css)
+    console.log('PRONTO')
+    console.log(css)
+    
+    
+    </script>
+</body>
+</html>

@@ -1,10 +1,29 @@
+html, body{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: gray;
+    /*--animation-duration: 22s;*/
+    --animation-duration: 12s;
+}
+
+video{
+    /*display: none;*/
+    position: absolute;
+    top: 2px;
+    left: 300px;
+    opacity: 0.3;
+    width: 256px;
+    height: 220px;
+    transform: scaleY(1.25);
+}
+
 .scene-container{
     position: relative;
     width: 256px;
     height: 220px;
-    border: 5px solid red;
+    /*border: 5px solid red;*/
     overflow: hidden;
-    
 }
 
 .background-container{
@@ -14,8 +33,8 @@
     width: 1975px;
     height: 448px;
     background-image: url(../img/scene-1-1.png);
-    animation-name: ani-background;
-    animation-duration: 30s;
+   animation-name: ani-background;/* */
+    animation-duration: var(--animation-duration);
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -30,53 +49,117 @@
     animation: ani-goomba .8s steps(2) infinite;
 }
 
-.mario{
-    position: absolute;
-    top: 185px;
-    left: 50px;
+.mario, .mario2{
     background-image: url(../img/mario.png);
     width: 16px;
     height: 16px;
     background-repeat: no-repeat;
+}
+
+.mario{
     animation: ani-mario .4s steps(1, start) infinite;
+    
+}
+
+.mario2{
+    animation: ani-mario2 .4s steps(2) infinite;
+}
+
+.mario1-color{
+    opacity: 1;
+    animation-name: ani-mario1-color;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.mario2-color{
+    position: relative;
+    top: -16px;
+    opacity: 0;
+    animation-name: ani-mario2-color;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.mario-position{
+    position: absolute;
+    top: 185px;
+    left: 50px;
+   animation-name: ani-mario-position;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 @keyframes ani-background{
-    0%{
-        left: 0%;
+    0.86%{/*0.62s*/
+        top: 0px;
+        left: 0px;
     }
-    16%{
-        left: -880px
+18.93%{/*13.67s*/
+        top: 0px;
+        left: -509px;
     }
-    20%{
-        top: 0;
-        left: -880px
+29.08%{/*21s*/
+        top: 0px;
+        left: -642px;
     }
-
-
-    20.1%{
-        top: -228px;
+31.42%{/*22.69s*/
+        top: 0px;
+        left: -662px;
+    }
+32.99%{/*23.82s*/
+        top: 0px;
+        left: -662px;
+    }
+35.26%{/*25.46s*/
+        top: -235px;
         left: -891px;
     }
-    36.6%{
-        top: -228px;
+48.05%{/*34.7s*/
+        top: -235px;
         left: -891px;
     }
-
-
-    36.7%{
-        top: 0;
-        left: -1138px;
+57.24%{/*41.33s*/
+        top: -235px;
+        left: -891px;
     }
-    46%{
-        top: 0;
-        left: -1138px;
+60.48%{/*43.67s*/
+        top: -235px;
+        left: -891px;
     }
-    60%{
-        left: -1718px;
+61.96%{/*44.74s*/
+        top: 0px;
+        left: -1153px;
     }
-    100%{
-        left: -1718px;
+69.49%{/*50.18s*/
+        top: 0px;
+        left: -1153px;
+    }
+71.32%{/*51.5s*/
+        top: 0px;
+        left: -1179px;
+    }
+81.94%{/*59.17s*/
+        top: 0px;
+        left: -1500px;
+    }
+87.01%{/*62.83s*/
+        top: 0px;
+        left: -1639px;
+    }
+95.33%{/*68.84s*/
+        top: 0px;
+        left: -1639px;
+    }
+100.00%{/*72.21s*/
+        top: 0px;
+        left: -1716px;
     }
 }
 
@@ -103,6 +186,458 @@
     100%{
         background-position: -52px -1px;
     }
+}
+
+@keyframes ani-mario2{
+    from{
+        background-position: -86px -1px;
+    }
+    to{
+        background-position: -120px -1px;
+    }
+}
+
+@keyframes ani-mario1-color{
+    0%{
+        opacity: 1;
+    }
+    86.54%{
+        opacity: 1;
+    }
+    
+    86.55%{/*60.97s*/
+            opacity: 0;
+        }
+    91.33%{/*66.64s*/
+            opacity: 0;
+        }
+    
+        91.34%{
+            opacity: 1;
+        }
+}
+
+
+@keyframes ani-mario2-color{
+    0%{
+        opacity: 0;
+    }
+    86.54%{
+        opacity: 0;
+    }
+    
+    86.55%{/*60.97s*/
+            opacity: 1;
+        }
+    91.33%{/*66.64s*/
+            opacity: 1;
+        }
+    
+        91.34%{
+            opacity: 0;
+        }
+}
+
+
+
+@keyframes ani-mario-position{
+
+0%{/*6.97s*/
+        top: 187px;
+        left: 40px;
+    }
+10.02%{/*7.31s*/
+        top: 187px;
+        left: 40px;
+    }
+10.47%{/*7.64s*/
+        top: 183px;
+        left: 42px;
+    }
+    /* Goomba */
+    
+10.92%{/*7.97s*/
+        top: 173px;
+        left: 44px;
+    }
+11.39%{/*8.31s*/
+        top: 165px;
+        left: 45px;
+    }
+11.84%{/*8.64s*/
+        top: 152px;
+        left: 45px;
+    }
+12.29%{/*8.97s*/
+        top: 167px;
+        left: 49px;
+    }
+12.76%{/*9.31s*/
+        top: 187px;
+        left: 54px;
+    }
+13.21%{/*9.64s*/
+        top: 186px;
+        left: 55px;
+    }
+13.66%{/*9.97s*/
+        top: 160px;
+        left: 56px;
+    }
+14.13%{/*10.31s*/
+        top: 143px;
+        left: 58px;
+    }
+14.58%{/*10.64s*/
+        top: 149px;
+        left: 59px;
+    }
+15.05%{/*10.98s*/
+        top: 151px;
+        left: 60px;
+    }
+15.50%{/*11.31s*/
+        top: 148px;
+        left: 60px;
+    }
+15.95%{/*11.64s*/
+        top: 124px;
+        left: 66px;
+    }
+16.40%{/*11.97s*/
+        top: 99px;
+        left: 73px;
+    }
+16.87%{/*12.31s*/
+        top: 83px;
+        left: 76px;
+    }
+17.32%{/*12.64s*/
+        top: 80px;
+        left: 77px;
+    }
+17.77%{/*12.97s*/
+        top: 89px;
+        left: 81px;
+    }
+18.24%{/*13.31s*/
+        top: 103px;
+        left: 86px;
+    }
+18.69%{/*13.64s*/
+        top: 117px;
+        left: 89px;
+    }
+
+/* 2 cano*/
+
+20.98%{/*15.31s*/
+        top: 145px;
+        left: 84px;
+    }
+21.43%{/*15.64s*/
+        top: 142px;
+        left: 84px;
+    }
+21.89%{/*15.97s*/
+        top: 122px;
+        left: 88px;
+    }
+22.35%{/*16.31s*/
+        top: 98px;
+        left: 90px;
+    }
+22.80%{/*16.64s*/
+        top: 78px;
+        left: 91px;
+    }
+23.26%{/*16.97s*/
+        top: 59px;
+        left: 103px;
+    }
+23.72%{/*17.31s*/
+        top: 51px;
+        left: 118px;
+    }
+24.17%{/*17.64s*/
+        top: 64px;
+        left: 137px;
+    }
+24.63%{/*17.97s*/
+        top: 90px;
+        left: 149px;
+    }
+
+/* 3 cano*/
+
+25.09%{/*18.31s*/
+        top: 112px;
+        left: 153px;
+    }
+25.54%{/*18.64s*/
+        top: 127px;
+        left: 149px;
+    }
+26.00%{/*18.97s*/
+        top: 137px;
+        left: 146px;
+    }
+26.46%{/*19.31s*/
+        top: 150px;
+        left: 141px;
+    }
+26.92%{/*19.64s*/
+        top: 164px;
+        left: 131px;
+    }
+
+27.83%{/*20.31s*/
+        top: 186px;
+        left: 128px;
+        opacity: 1;
+    }
+
+/* desceu */
+
+
+/* underground */
+
+
+27.84%{/*20.31s*/
+    opacity: 0;
+}
+38.79%{/*20.31s*/
+    top: 20px;
+    left: 50px;
+    opacity: 0;
+}
+38.80%{/*28.31s*/
+        top: 20px;
+        left: 50px;
+        opacity: 1;
+    }
+
+41.07%{/*29.97s*/
+        top: 140px;
+        left: 50px;
+    }
+41.54%{/*30.31s*/
+        top: 125px;
+        left: 74px;
+    }
+41.99%{/*30.64s*/
+        top: 140px;
+        left: 82px;
+    }
+42.44%{/*30.97s*/
+        top: 136px;
+        left: 94px;
+    }
+42.91%{/*31.31s*/
+        top: 118px;
+        left: 122px;
+    }
+43.36%{/*31.64s*/
+        top: 114px;
+        left: 158px;
+    }
+43.83%{/*31.98s*/
+        top: 137px;
+        left: 170px;
+    }
+44.28%{/*32.31s*/
+        top: 170px;
+        left: 178px;
+    }
+44.73%{/*32.64s*/
+        top: 183px;
+        left: 183px;
+    }
+45.18%{/*32.97s*/
+        top: 181px;
+        left: 196px;
+    }
+45.65%{/*33.31s*/
+        top: 180px;
+        left: 203px;
+    }
+46.10%{/*33.64s*/
+        top: 181px;
+        left: 220px;
+    }
+46.55%{/*33.97s*/
+        top: 181px;
+        left: 227px;
+    }
+47.02%{/*34.31s*/
+        top: 181px;
+        left: 235px;
+    }
+47.47%{/*34.64s*/
+        top: 182px;
+        left: 248px;
+    }
+47.92%{/*34.97s*/
+        top: 186px;
+        left: 259px;
+    }
+48.39%{/*35.31s*/
+        top: 205px;
+        left: 273px;
+    }
+48.84%{/*35.64s*/
+        top: 230px;
+        left: 238px;
+    }
+
+/* entrou cano underground */
+
+49.29%{/*35.97s*/
+        top: 238px;
+        left: 188px;
+        opacity: 1;
+    }
+49.3%{/*36.31s*/
+        opacity: 0
+    }
+
+    50.20%{
+        opacity: 1;
+    }
+
+/* subiu cano */
+
+63.92%{/*46.64s*/
+        top: 221px;
+        left: 53px;
+    }
+    
+71.22%{/*51.97s*/
+        top: 151px;
+        left: 62px;
+    }
+
+72.14%{/*52.64s*/
+        top: 175px;
+        left: 67px;
+    }
+72.59%{/*52.97s*/
+        top: 182px;
+        left: 68px;
+    }
+73.06%{/*53.31s*/
+        top: 186px;
+        left: 68px;
+    }
+73.51%{/*53.64s*/
+        top: 184px;
+        left: 74px;
+    }
+73.96%{/*53.97s*/
+        top: 183px;
+        left: 78px;
+    }
+74.43%{/*54.31s*/
+        top: 183px;
+        left: 79px;
+    }
+
+/* andando - final */
+
+
+74.88%{/*54.64s*/
+        top: 157px;
+        left: 89px;
+    }
+75.33%{/*54.97s*/
+        top: 143px;
+        left: 97px;
+    }
+75.80%{/*55.31s*/
+        top: 136px;
+        left: 105px;
+    }
+76.25%{/*55.64s*/
+        top: 135px;
+        left: 120px;
+    }
+76.70%{/*55.97s*/
+        top: 144px;
+        left: 127px;
+    }
+77.17%{/*56.31s*/
+        top: 151px;
+        left: 128px;
+    }
+77.62%{/*56.64s*/
+        top: 143px;
+        left: 128px;
+    }
+78.07%{/*56.97s*/
+        top: 102px;
+        left: 136px;
+    }
+78.54%{/*57.31s*/
+        top: 85px;
+        left: 138px;
+    }
+78.99%{/*57.64s*/
+        top: 77px;
+        left: 142px;
+    }
+79.44%{/*57.97s*/
+        top: 82px;
+        left: 143px;
+    }
+79.91%{/*58.31s*/
+        top: 78px;
+        left: 140px;
+    }
+
+82.18%{/*59.97s*/
+        top: 30px;
+    }
+
+/* pulando ao pole */
+
+
+
+/* descendo pole */
+
+83.55%{/*60.97s*/
+        top: 11px;
+        left: 117px;
+    }
+91.33%{/*66.64s*/
+        top: 161px;
+        left: 117px;
+    }
+
+
+
+/* desceu pole */
+
+
+91.79%{/*66.98s*/
+        top: 168px;
+        left: 128px;
+    }
+92.24%{/*67.31s*/
+        top: 178px;
+        left: 140px;
+    }
+98%{/*71.64s*/
+        top: 184px;
+        left: 156px;
+        opacity: 1;
+    }
+100.00%{/*72.97s*/
+        top: 186px;
+        left: 149px;
+        opacity: 0;
+    }
+
+
 }
 
 #goomba-1{
