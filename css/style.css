@@ -1,0 +1,29 @@
+.scene-container{
+    position: relative;
+    width: 256px;
+    height: 220px;
+    border: 5px solid red;
+    overflow: hidden;
+    
+}
+
+.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3392px;
+    height: 448px;
+    background-image: url(../img/scene-1-1.png);
+    animation-name: ani-background;
+    animation-duration: 35s;
+    animation-timing-function: linear;
+}
+
+@keyframes ani-background{
+    from{
+        left: 0%;
+    }
+    to{
+        left: -1006%;
+    }
+}
