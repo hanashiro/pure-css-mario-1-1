@@ -7,22 +7,12 @@ html, body{
     --animation-duration: 12s;
 }
 
-video{
-    /*display: none;*/
-    position: absolute;
-    top: 2px;
-    left: 300px;
-    opacity: 0.3;
-    width: 256px;
-    height: 220px;
-    transform: scaleY(1.25);
-}
 
 .scene-container{
     position: relative;
     width: 256px;
     height: 220px;
-    /*border: 5px solid red;*/
+    border: 5px solid red;
     overflow: hidden;
 }
 
@@ -33,7 +23,7 @@ video{
     width: 1975px;
     height: 448px;
     background-image: url(../img/scene-1-1.png);
-   animation-name: ani-background;/* */
+   animation-name: ani-background; /**/
     animation-duration: var(--animation-duration);
     animation-timing-function: linear;
     animation-iteration-count: 1;
@@ -48,6 +38,54 @@ video{
     background-repeat: no-repeat;
     animation: ani-goomba .8s steps(2) infinite;
 }
+
+.pipe-1, .pipe-2, .pipe-3, .flag{
+    position: absolute;
+    background-image: url(../img/pipes.png);
+    background-repeat: no-repeat;
+}
+
+.pipe-1, .pipe-2, .pipe-3{
+    z-index: 2;
+}
+
+
+.pipe-1{
+    top: 136px;
+    left: 736px;
+    width: 32px;
+    height: 86px;
+}
+
+.pipe-2{
+    width: 47px;
+    height: 34px;
+    background-position: -32px 0;
+    top: 404px;
+    left: 1099px;
+}
+
+.pipe-3{
+    width: 32px;
+    height: 54px;
+    background-position: -49px -34px;
+    top: 168px;
+    left: 1200px;
+}
+
+.flag{
+    width: 16px;
+    height: 16px;
+    top: 41px;
+    left: 1753px;
+    background-position: -33px -34px;
+    animation-name: ani-flag;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 
 .mario, .mario2{
     background-image: url(../img/mario.png);
@@ -89,7 +127,8 @@ video{
     position: absolute;
     top: 185px;
     left: 50px;
-   animation-name: ani-mario-position;
+    z-index: 1;
+     animation-name: ani-mario-position; /**/
     animation-duration: var(--animation-duration);
     animation-timing-function: linear;
     animation-iteration-count: 1;
@@ -218,6 +257,7 @@ video{
 }
 
 
+
 @keyframes ani-mario2-color{
     0%{
         opacity: 0;
@@ -237,6 +277,23 @@ video{
             opacity: 0;
         }
 }
+
+@keyframes ani-flag{
+    0%{
+        top: 41px;
+    }
+    86.54%{
+        top: 41px;
+    }
+    
+        91.34%{
+            top: 166px;
+        }
+        100%{
+            top: 166px;
+        }
+}
+
 
 
 

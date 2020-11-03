@@ -20,6 +20,14 @@
                 <div class="goomba" id="goomba-5" ></div>
                 <div class="goomba" id="goomba-6" ></div>
             </div>
+
+            <div class="pipes-container">
+                <div class="pipe-1"></div>
+                <div class="pipe-2"></div>
+                <div class="pipe-3"></div>
+            </div>
+
+            <div class="flag"></div>
         </div>
 
         <div class="mario-position" >
@@ -32,171 +40,6 @@
             </div>
         </div>
     </div>
-
-    <video src="mario-1-1.mp4" controls muted ></video>
-
-
-    <script>
-        let isStarted = false;
-        let startTime;
-        let endTime;
-        let timer;
-        let mousePosition = {x:0, y: 0};
-        let positions = [];
-
-
-        let backgroundPositions = [];
-
-        const marioPosition = document.querySelector('.mario-position');
-        const myVideo = document.querySelector('video');
-
-        myVideo.addEventListener('play', () => {
-            if(myVideo.currentTime <= 4){
-                myVideo.currentTime = 4;
-            }
-            myVideo.playbackRate = .5;
-
-            document.querySelector('.background-container').style.animationName = 'ani-background';
-            init();
-        })
-
-
-        function start(){
-            if(!isStarted){
-                isStarted = true;
-                startTime = myVideo.currentTime - 4;
-
-                
-                
-
-                console.log("START")
-                timer = setInterval(() => {
-                    positions.push({
-                        ...mousePosition,
-                        time: myVideo.currentTime - 4
-                    })
-                }, 200)
-            }
-        }
-        function stop(){
-            if(isStarted){
-                isStarted = false;
-                endTime = myVideo.currentTime - 4;
-                clearInterval(timer);
-                copy(JSON.stringify(positions));
-                console.log("FINISH")
-                makeCSS();
-            }
-        }
-
-        function init(){
-            window.addEventListener('keydown', event => {
-                if(event.key === 'Enter'){
-                    stop();
-                }
-            });
-            
-            window.addEventListener('mousemove', event => {
-                mousePosition = {
-                    x: event.clientX,
-                    y: event.clientY
-                };
-                marioPosition.style.top = mousePosition.y + 'px';
-                marioPosition.style.left = mousePosition.x + 'px';
-            })
-            document.querySelector('.background-container').addEventListener('animationstart', ()=>{
-                start();
-            })
-            document.querySelector('.background-container').addEventListener('animationend', ()=>{
-                stop();
-            })
-        }
-
-        function copy(text){
-            var textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-        }
-
-
-
-        /*function addBackgroundPosition(){
-            const bg = document.querySelector('.background-container');
-            backgroundPositions.push({
-                top: bg.style.top,
-                left: bg.style.left,
-                time: myVideo.currentTime - 4
-            })
-        }
-
-        window.addEventListener('keydown', event => {
-                if(event.key === 'b'){
-                    addBackgroundPosition()
-                }
-            });*/
-
-
-
-
-
-function makeCSS(){
-    var css = '';
-    var startTime = (positions[0].time);
-    var endTime = (positions[positions.length - 1].time);
-    
-    function getTime(time){
-        return parseFloat((time/30*100).toFixed(2))
-    }
-    
-    positions = positions.map(position => {
-        return {
-            ...position,
-            time: getTime(position.time)
-        }
-    })
-    
-    
-    positions.forEach(position => {
-        var time = position.time;
-        css +=`\t${((time)/getTime(endTime)*100).toFixed(2)}%{/*${time}s*/
-            top: ${position.y}px;
-            left: ${position.x}px;
-        }\n`
-    })
-    
-    function copy(text){
-                var textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-    
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-            }
-    
-            copy(css)
-    console.log('PRONTO')
-    console.log(css)
-}
-
-
-
-
-
-
-
-
-
-
-
-        
-    </script>
-
-
 
 
 </body>
